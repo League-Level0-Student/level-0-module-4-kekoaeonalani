@@ -62,6 +62,10 @@ public class GooglyEyes extends PApplet {
     static final int HEIGHT = 600;
     
     PImage face;
+    int x;  
+    int y;
+    
+    
     
     @Override
     public void settings() {
@@ -86,10 +90,35 @@ ellipse(156,206, 150,300);
 ///right eye white
 ellipse(665,201, 150,300);
 ///left eye pupil
+
+x = mouseX;
+y = mouseY;
+
+if (x > 182) {
+	x = 182;
+}
+if (x< 132) {
+	x = 132;
+}
+
+if (y> 306) {
+	y = 306;
+}
+if (y < 104) {
+	y = 104;
+}
 fill(0,0,0);
-ellipse(mouseX, mouseY, 100,100);
+ellipse(x,y, 100,100);
 ///right eye pupil
-ellipse(mouseX, mouseY, 100,100);
+ellipse(x + 509, y, 100,100);
+
+
+
+
+
+
+
+
     }
 
     static public void main(String[] args) {

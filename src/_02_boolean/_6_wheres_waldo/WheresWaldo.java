@@ -42,7 +42,8 @@ public class WheresWaldo extends PApplet {
     static final int HEIGHT = 400;
 
     PImage waldo;
-
+int x;
+int y;
     @Override
     public void settings() {
         size(WIDTH, HEIGHT);
@@ -50,12 +51,30 @@ public class WheresWaldo extends PApplet {
 
     @Override
     public void setup() {
-        
+    	waldo = loadImage("socialDistancingWaldo.png");
+    	waldo.resize(WIDTH,HEIGHT);
+    	
     }
 
     @Override
     public void draw() {
-        
+    	background(waldo);
+    	if (mousePressed) {
+    		System.out.println(mouseX +" , "+ mouseY);
+    	}
+    	x = mouseX;
+    	y = mouseY;
+    	
+    	if (mousePressed && x >378 && x < 432 && y > 228 && y< 350 ) {
+    		playWhoohoo();
+    	}
+    		
+    	else if (mousePressed) {
+    		playDoh();
+    	}
+    	
+    		
+    		
     }
 
     static public void main(String[] args) {
